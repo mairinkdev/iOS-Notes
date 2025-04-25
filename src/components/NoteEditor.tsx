@@ -12,7 +12,7 @@ interface NoteEditorProps {
 
 const NoteEditor = ({ noteId, onClose }: NoteEditorProps) => {
   const { getNoteById, updateNote, deleteNote } = useNotesStore()
-  const [note, setNote] = useState<Note | undefined>(getNoteById(noteId))
+  const [note] = useState<Note | undefined>(getNoteById(noteId))
   const [title, setTitle] = useState(note?.title || '')
   const [content, setContent] = useState(note?.content || '')
   const [showDeleteModal, setShowDeleteModal] = useState(false)
