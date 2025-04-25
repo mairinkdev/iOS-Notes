@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    @apply bg-ios-background-light dark:bg-ios-background-dark text-ios-text-light dark:text-ios-text-dark;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+  }
+
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Esconder scrollbars (estilo iOS) */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Adaptar tamanho em telas muito pequenas */
+  @media (max-width: 320px) {
+    .ios-header {
+      font-size: 1.1rem;
+    }
+    
+    .ios-button {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Adaptar espaçamento em telas maiores */
+  @media (min-width: 768px) {
+    .container-notes {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@layer components {
+  .ios-note-card {
+    @apply bg-ios-note-light dark:bg-ios-note-dark rounded-lg p-3 mb-2 shadow-sm;
+  }
+  
+  .ios-header {
+    @apply font-semibold text-xl py-2;
+  }
+  
+  .ios-button {
+    @apply text-blue-500 font-medium text-sm;
+  }
+
+  /* Evitar que botões e elementos interativos sejam muito pequenos em mobile */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+} 
